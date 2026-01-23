@@ -1,0 +1,140 @@
+# FarepixelDuels Configuration
+# Database options: SQLITE or MYSQL
+database:
+  type: SQLITE
+  sqlite:
+    file: farepixelduels.db
+  mysql:
+    host: localhost
+    port: 3306
+    database: farepixelduels
+    username: root
+    password: ''
+    useSSL: false
+
+lobby_spawn:
+  world: world
+  x: -12.89456389822756
+  y: 70.0
+  z: 3.8954193880905024
+  yaw: -22.944885
+  pitch: 4.139739
+
+block_place_and_break:
+  enabled: true
+  worlds:
+    - world
+
+duels:
+  start_countdown: 15
+  waiting_lobby:
+    use_lobby_spawn: false
+  messages:
+    join_format: '%luckperms_prefix% %player% &ehas joined (&b%count%&e/&b%max%&e)!'
+    countdown_critical: '&eThe game starts in &c%seconds%&e seconds!'
+    fight: '&aFight!'
+    eliminate: '&e&lEliminate your opponent!'
+    opponent_line: '&f&lOpponent: &r%opponent%'
+    victory_title: '&6&lVICTORY!'
+    victory_subtitle: '&6%winner% &fwon the Duel!'
+    defeat_title: '&c&lGAME OVER!'
+    defeat_subtitle: '&c%winner% &fwon the Duel!'
+    coin_reward: 120 #The Coins that the winner will get rewarded after the game finish.
+    wins_coins:
+      min: 50
+      max: 150
+    # %player% = winner name
+    # %mode%   = game mode id (classic, boxing, bow...)
+    daily_bonus_cmds:
+      - 'eco give %player% 100'
+      - 'crate key give %player% vote 1'
+      - 'broadcast &a%player% &7just won a &eDuels Bonus &7in &b%mode%&7!'
+
+  play_again:
+    enabled: true
+    slot: 4
+    name: '&aPlay Again &7(Right Click)'
+    lore:
+      - '&7Click to queue again for'
+      - '&7the same mode & type!'
+
+  time_limit_seconds:
+    default: 300
+    classic: 300
+    boxing: 180
+
+  boxing:
+    hit_to_win: 100
+
+  return_item:
+    slot: 8
+    name: '&cReturn to Lobby &7(Right Click)'
+    lore:
+      - '&7Right-click to leave to the lobby!'
+    enabled: true
+    command: leave
+
+  scoreboard:
+    enabled: true
+    server_name: www.farepixel.fun
+    waiting_title: '&e&lDUELS'
+    playing_title: '&e&lDUELS'
+    lobby_title: '&e&lDUELS'
+    lobby_lines:
+        - '&7%date% &891D'
+        - ''
+        - '&bDuel other players with:'
+        - '&e/duel <player>'
+        - ''
+        - '&fCoins: &6%farepixelduels_coins_commas%'
+        - ''
+        - '&fOverall Winstreak: &a%farepixelduels_winstreak_commas%'
+        - '&fBest Winstreak: &a%farepixelduels_best_winstreak_commas%'
+        - ''
+        - '&fOverall Wins: &a%farepixelduels_wins_commas%'
+        - '&fOverall Kills: &a%farepixelduels_kills_commas%'
+        - ''
+        - '&e%server%'
+    waiting_lines:
+      - '&7%date% &8%tag%'
+      - ''
+      - '&fMap: &a%arena%'
+      - '&fPlayers: &a%players%/%max%'
+      - ''
+      - '%status%'
+      - ''
+      - '&fMode: &a%mode%'
+      - '&fVersion: &7v1.0'
+      - ''
+      - '&e%server%'
+    playing_lines:
+      - '&7%date% &8%tag%'
+      - ''
+      - '&fTime: &a%timeout%'
+      - ''
+      - '&fOpponent:'
+      - '&7%opponents%'
+      - ''
+      - '&fMode: &a%mode%'
+      - '&fOverall Winstreak: &a%winstreak%'
+      - '&fBest Winstreak: &a%best_winstreak%'
+      - ''
+      - '&e%server%'
+
+  scoreboard_boxing:
+    enabled: true
+    playing_title: '&e&lDUELS'
+    playing_lines:
+      - '&7%date% &8%tag%'
+      - ''
+      - '&fTime: &a%timeout%'
+      - ''
+      - '&f&LLife Left:'
+      - '&7%player_name%: &a%hits%'
+      - '&7%opponents%: &a%opponent_hits%'
+      - ''
+      - '&fMode: &a%mode%'
+      - '&fOverall Winstreak: &a%winstreak%'
+      - '&fBest Winstreak: &a%best_winstreak%'
+      - ''
+      - '&e%server%'
