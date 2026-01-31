@@ -1,0 +1,73 @@
+name: FarepixelDuels
+version: 1.0
+main: me.herex.farepixelduels.FarepixelDuels
+api-version: 1.8
+softdepend: [PlaceholderAPI, LuckPerms]
+
+commands:
+  coins:
+    description: Manage player coins
+    usage: /coins <give|remove|set> <player> <amount>
+    permission: farepixelduels.coins
+  setspawn:
+    description: Set duels lobby spawn point
+    usage: /setspawn
+    permission: farepixelduels.setspawn
+  spawn:
+    description: Teleport to duels lobby spawn
+    usage: /spawn
+    permission: farepixelduels.spawn
+  stuck:
+    description: Teleport to duels lobby spawn if you are stuck
+    usage: /stuck
+    permission: farepixelduels.stuck
+  duels:
+    description: Duels main command (admin setup, kit editor, reload)
+    usage: /duels <adminsetup|adminkiteditor|reload> ...
+    permission: farepixelduels.admin
+  play:
+    description: Join a duel queue
+    usage: /play <classic> [1v1|2v2]
+    permission: farepixelduels.play
+
+  leave:
+    description: Leave current duel or queue
+    usage: /leave
+    permission: farepixelduels.play
+  l:
+    description: Alias for /leave
+    usage: /l
+    permission: farepixelduels.play
+  kiteditor:
+    description: Edit your duel kits
+    usage: /kiteditor
+  cosmeticmenu:
+    description: Open the duels cosmetics menu
+    usage: /cosmeticmenu
+  duel:
+    description: Duel a player
+    usage: /duel <player> [mode]
+  replay:
+    description: Open your duel replays menu
+    usage: /replay
+  quests:
+    description: Open Duels quests menu
+    usage: /quests
+
+permissions:
+  farepixelduels.coins:
+    default: op
+  farepixelduels.setspawn:
+    default: op
+  farepixelduels.spawn:
+    default: true
+  farepixelduels.stuck:
+    default: true
+  farepixelduels.play:
+    default: true
+  farepixelduels.admin:
+    default: op
+  farepixelduels.build.bypass:
+    default: op
+  farepixelduels.cosmetics:
+    default: true

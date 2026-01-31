@@ -1,0 +1,674 @@
+# FarepixelDuels Configuration
+# Database options: SQLITE or MYSQL
+database:
+  type: SQLITE
+  sqlite:
+    file: farepixelduels.db
+  mysql:
+    host: localhost
+    port: 3306
+    database: farepixelduels
+    username: root
+    password: ''
+    useSSL: false
+
+lobby_spawn:
+  world: world
+  x: -12.89456389822756
+  y: 70.0
+  z: 3.8954193880905024
+  yaw: -22.944885
+  pitch: 4.139739
+
+block_place_and_break:
+  enabled: true
+  worlds:
+    - world
+
+duels:
+  start_countdown: 10
+  waiting_lobby:
+    use_lobby_spawn: false
+  messages:
+    join_format: '%luckperms_prefix% %player% &ehas joined (&b%count%&e/&b%max%&e)!'
+    countdown_critical: '&eThe game starts in &c%seconds%&e seconds!'
+    fight: '&aFight!'
+    eliminate: '&e&lEliminate your opponent!'
+    opponent_line: '&f&lOpponent: &r%opponent%'
+    victory_title: '&6&lVICTORY!'
+    victory_subtitle: '&6%winner% &fwon the Duel!'
+    defeat_title: '&c&lGAME OVER!'
+    defeat_subtitle: '&c%winner% &fwon the Duel!'
+    coin_reward: 120 #The Coins that the winner will get rewarded after the game finish.
+    wins_coins:
+      min: 50
+      max: 150
+    # %player% = winner name
+    # %mode%   = game mode id (classic, boxing, bow...)
+    daily_bonus_cmds:
+      - 'eco give %player% 100'
+      - 'crate key give %player% vote 1'
+      - 'broadcast &a%player% &7just won a &eDuels Bonus &7in &b%mode%&7!'
+
+  play_again:
+    enabled: true
+    slot: 4
+    name: '&aPlay Again &7(Right Click)'
+    lore:
+      - '&7Click to queue again for'
+      - '&7the same mode & type!'
+
+  time_limit_seconds:
+    default: 300
+    classic: 300
+    boxing: 180
+
+  boxing:
+    hit_to_win: 100
+
+  return_item:
+    slot: 8
+    name: '&cReturn to Lobby &7(Right Click)'
+    lore:
+      - '&7Right-click to leave to the lobby!'
+    enabled: true
+    command: leave
+
+  #if you want to right-click a player on lobby and open the duel menu to duel him eazly keep this enabled.
+  duel_right_click:
+    enabled: true
+
+  replay:
+    enabled: true
+
+  scoreboard:
+    enabled: true
+    server_name: www.farepixel.fun
+    waiting_title: '&e&lDUELS'
+    playing_title: '&e&lDUELS'
+    lobby_title: '&e&lDUELS'
+    lobby_lines:
+        - '&7%date% &891D'
+        - ''
+        - '&bDuel other players with:'
+        - '&e/duel <player>'
+        - ''
+        - '&fCoins: &6%farepixelduels_coins_commas%'
+        - ''
+        - '&fOverall Winstreak: &a%farepixelduels_winstreak_commas%'
+        - '&fBest Winstreak: &a%farepixelduels_best_winstreak_commas%'
+        - ''
+        - '&fOverall Wins: &a%farepixelduels_wins_commas%'
+        - '&fOverall Kills: &a%farepixelduels_kills_commas%'
+        - ''
+        - '&e%server%'
+    waiting_lines:
+      - '&7%date% &8%tag%'
+      - ''
+      - '&fMap: &a%arena%'
+      - '&fPlayers: &a%players%/%max%'
+      - ''
+      - '%status%'
+      - ''
+      - '&fMode: &a%mode%'
+      - '&fVersion: &7v1.0'
+      - ''
+      - '&e%server%'
+    playing_lines:
+      - '&7%date% &8%tag%'
+      - ''
+      - '&fTime: &a%timeout%'
+      - ''
+      - '&fOpponent:'
+      - '&7%opponents%'
+      - ''
+      - '&fMode: &a%mode%'
+      - '&fOverall Winstreak: &a%winstreak%'
+      - '&fBest Winstreak: &a%best_winstreak%'
+      - ''
+      - '&e%server%'
+
+  scoreboard_boxing:
+    enabled: true
+    playing_title: '&e&lDUELS'
+    playing_lines:
+      - '&7%date% &8%tag%'
+      - ''
+      - '&fTime: &a%timeout%'
+      - ''
+      - '&f&LLife Left:'
+      - '&7%player_name%: &a%hits%'
+      - '&7%opponents%: &a%opponent_hits%'
+      - ''
+      - '&fMode: &a%mode%'
+      - '&fOverall Winstreak: &a%winstreak%'
+      - '&fBest Winstreak: &a%best_winstreak%'
+      - ''
+      - '&e%server%'
+
+  kits:
+    classic:
+      - ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+      - ==: org.bukkit.inventory.ItemStack
+        type: FISHING_ROD
+      - ==: org.bukkit.inventory.ItemStack
+        type: BOW
+      - ==: org.bukkit.inventory.ItemStack
+        type: ARROW
+        amount: 5
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - ==: org.bukkit.inventory.ItemStack
+        type: IRON_BOOTS
+      - ==: org.bukkit.inventory.ItemStack
+        type: IRON_LEGGINGS
+      - ==: org.bukkit.inventory.ItemStack
+        type: IRON_CHESTPLATE
+      - ==: org.bukkit.inventory.ItemStack
+        type: IRON_HELMET
+    uhc:
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            DAMAGE_ALL: 3
+          repair-cost: 1
+      - ==: org.bukkit.inventory.ItemStack
+        type: FISHING_ROD
+      - ==: org.bukkit.inventory.ItemStack
+        type: BOW
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            ARROW_DAMAGE: 3
+          repair-cost: 1
+      - null
+      - ==: org.bukkit.inventory.ItemStack
+        type: COOKED_BEEF
+        amount: 64
+      - ==: org.bukkit.inventory.ItemStack
+        type: GOLDEN_APPLE
+        amount: 6
+      - ==: org.bukkit.inventory.ItemStack
+        type: SKULL_ITEM
+        damage: 3
+        amount: 3
+        meta:
+          ==: ItemMeta
+          meta-type: SKULL
+          display-name: "\xa76Golden Head"
+          internal: H4sIAAAAAAAAAD2Oy06DQBiFf01MkPgYbkmGa8qiC5M2LaQM0sJQ2BX4kcsMGgoKPJMPKStX53yL8+XIADK8XNqR8/f+s6w5SvDoFPCqYq5paKiKWaClGGRjKRs7KxVDLXTTNjDLcpRBXkdf2A813p9BGnAaxh7vMgA8SPDEbnxE+EX9zPF4VnPBFr8bwgvh/por/1iOqEhxfLNOs03S69qvLs9nc7jFJk90t0q7YMwEI6d/R/TtaW5Nm/2cxg7xQ8bTQzQnC2uSMJroUrWeCKY0psKLaUXj/UxD1noNa1PhLcniqPTgNnRXCNp8EH+Xm14cGE6n2mWw3a7P4Q+1hyfzFAEAAA==
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_PICKAXE
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_AXE
+      - ==: org.bukkit.inventory.ItemStack
+        type: WOOD
+        amount: 64
+      - ==: org.bukkit.inventory.ItemStack
+        type: ARROW
+        amount: 20
+      - ==: org.bukkit.inventory.ItemStack
+        type: COBBLESTONE
+        amount: 64
+      - null
+      - ==: org.bukkit.inventory.ItemStack
+        type: WATER_BUCKET
+      - null
+      - ==: org.bukkit.inventory.ItemStack
+        type: LAVA_BUCKET
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+    boxing:
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            DAMAGE_ALL: 10
+            DURABILITY: 10
+      - ==: org.bukkit.inventory.ItemStack
+        type: RAW_FISH
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            DURABILITY: 10
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+    nodebuff:
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            DAMAGE_ALL: 3
+            FIRE_ASPECT: 2
+            DURABILITY: 3
+          repair-cost: 7
+      - ==: org.bukkit.inventory.ItemStack
+        type: ENDER_PEARL
+        amount: 16
+      - ==: org.bukkit.inventory.ItemStack
+        type: COOKED_BEEF
+        amount: 64
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8259
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8258
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8258
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8258
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 16453
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8258
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_BOOTS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 3
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_LEGGINGS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 3
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_CHESTPLATE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 3
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_HELMET
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 3
+            DURABILITY: 3
+          repair-cost: 3
+    op:
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            DAMAGE_ALL: 5
+            FIRE_ASPECT: 2
+            DURABILITY: 3
+          repair-cost: 7
+      - ==: org.bukkit.inventory.ItemStack
+        type: GOLDEN_APPLE
+        damage: 1
+        amount: 64
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_HELMET
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_CHESTPLATE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_LEGGINGS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_BOOTS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 7
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8201
+      - ==: org.bukkit.inventory.ItemStack
+        type: POTION
+        damage: 8194
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - null
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_BOOTS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 7
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_LEGGINGS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_CHESTPLATE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 3
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_HELMET
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            PROTECTION_ENVIRONMENTAL: 4
+            DURABILITY: 3
+          repair-cost: 3
